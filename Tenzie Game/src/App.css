@@ -41,7 +41,6 @@ main {
 }
 
 main:hover {
-  transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -76,7 +75,7 @@ main:hover {
   padding: 10px; 
 }
 
-.roll {
+.roll,.NewGame {
   background-color: #5d00fd;
   color: #ffffff;
   border: none;
@@ -95,12 +94,14 @@ main:hover {
   animation: none; 
 }
 
-.roll:active {
+.roll:active,.NewGame:active {
   animation: roll-animation 0.5s ease-in-out; 
   transform: translateY(2px) scale(1.1); 
   box-shadow: 0 6px 8px rgb(30, 255, 251);
 }
-
+.NewGame{
+  width: 200px;
+}
 .title {
   font-size: 48px;
   margin: 0;

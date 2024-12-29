@@ -1,6 +1,7 @@
 import Die from './Die.jsx'
 import { useState } from 'react';
 import { nanoid } from "nanoid"
+import ReactConfetti from 'react-confetti';
 
 export default function Main(){
     function generateAllNewDice(){
@@ -39,6 +40,7 @@ export default function Main(){
 
     return (
         <main>
+            {gameWon && <ReactConfetti/>}
             <div className="gameInfo">
                 <h1 className="title">Tenzies</h1>
              <p className="instructions">Roll until all dice are the same.
@@ -49,7 +51,8 @@ export default function Main(){
                 {diceElement}
             </div>
             <div>
-                <button className="roll" onClick={rollDice}>{gameWon? "New Game":"Roll"}</button>
+                <button className={gameWon? "NewGame":"roll"} onClick={rollDice}>{gameWon? "New Game":"Roll"}</button>
             </div>
         </main>)
 }
+
