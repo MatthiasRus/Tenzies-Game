@@ -8,13 +8,17 @@ export default function Main(){
     const [arrayNewDice, setArrayNewDice] = useState(generateAllNewDice());
 
     const diceElement = arrayNewDice.map(dice => (<Die value={dice}/>))
+
+    function rollDice(){
+        setArrayNewDice(generateAllNewDice())
+    }
     return (
         <main>
             <div className="diesCont">
                 {diceElement}
             </div>
             <div>
-                <button className="roll">Roll</button>
+                <button className="roll" onClick={rollDice}>Roll</button>
             </div>
         </main>)
 }
