@@ -14,10 +14,20 @@ export default function Main(){
     }
     const [arrayNewDice, setArrayNewDice] = useState(generateAllNewDice());
 
-    const diceElement = arrayNewDice.map((diceObj) => <Die key={diceObj.id} value={diceObj.value}/>)
+    const diceElement = arrayNewDice.map((diceObj) => 
+                        <Die 
+                        key={diceObj.id} 
+                        value={diceObj.value} 
+                        isHeld={diceObj.isHeld}
+                        hold={() => hold(diceObj.id)}
+                        />)
 
     function rollDice(){
         setArrayNewDice(generateAllNewDice())
+    }
+
+    function hold(id){
+        console.log(id)
     }
     return (
         <main>
