@@ -4,10 +4,9 @@ export default function Die({ value, isHeld, hold }) {
     const [isRolling, setIsRolling] = useState(false);
 
     useEffect(() => {
-        // Trigger rolling animation when value changes
-        if (!isHeld) {
+       if (!isHeld) {
             setIsRolling(true);
-            const timeout = setTimeout(() => setIsRolling(false), 300); // Animation duration
+            const timeout = setTimeout(() => setIsRolling(false), 300); 
             return () => clearTimeout(timeout);
         }
     }, [value, isHeld]);
