@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0B2434;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+div#root {
+  height: 100%;
+}
+
+main {
+  background-color: #F5F5F5;
+  height: 100%;
+  border-radius: 5px;
+  
+}
