@@ -43,28 +43,54 @@ main {
 main:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-
-.die,.die button {
-  background-color: #fff; 
-  color: #0B2434; 
+.die {
+  background-color: #fff;
   border: none;
   width: 70px;
   height: 70px;
-  text-align: center;
-  font-size: 2rem; 
-  font-weight: 700; 
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease-in-out; 
+  justify-items: center;
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.die:active {
-  transform: translateY(2px) scale(1.53); 
-  box-shadow: 0 2px 4px rgb(0, 0, 0); 
+.die.rolling {
+  animation: roll 0.3s ease-in-out;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #0b2434;
+  border-radius: 50%;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .diesCont {
