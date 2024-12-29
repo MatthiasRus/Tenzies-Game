@@ -1,7 +1,7 @@
 import Die from './Die.jsx'
 import { useState } from 'react';
 import { nanoid } from "nanoid"
-import ReactConfetti from 'react-confetti';
+import Confetti from 'react-confetti';
 
 export default function Main(){
     function generateAllNewDice(){
@@ -13,7 +13,7 @@ export default function Main(){
                 id:nanoid()
             }))
     }
-    const [arrayNewDice, setArrayNewDice] = useState(generateAllNewDice());
+    const [arrayNewDice, setArrayNewDice] = useState(() => generateAllNewDice());
 
     const diceElement = arrayNewDice.map((diceObj) => 
                         <Die 
@@ -24,7 +24,7 @@ export default function Main(){
                         />)
 
     function rollDice(){
-        gameWon ? setArrayNewDice(generateAllNewDice()):
+        gameWon ? setArrayNewDice(() => generateAllNewDice()):
         setArrayNewDice(prevArr => prevArr.map( dice =>
             dice.isHeld ? dice : {...dice, value: Math.ceil(Math.random() * 6)}
         )
@@ -40,7 +40,7 @@ export default function Main(){
 
     return (
         <main>
-            {gameWon && <ReactConfetti/>}
+            {gameWon && <Confetti/>}
             <div className="gameInfo">
                 <h1 className="title">Tenzies</h1>
              <p className="instructions">Roll until all dice are the same.
