@@ -1,5 +1,5 @@
 import Die from './Die.jsx'
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { nanoid } from "nanoid"
 import Confetti from 'react-confetti';
 
@@ -38,20 +38,29 @@ export default function Main(){
     }
     const gameWon = arrayNewDice.every(dice => dice.isHeld) && arrayNewDice.every(dice => dice.value === arrayNewDice[0].value);
 
+    // accessibility improvement
+    const buttonRef = useRef(null);
+    useEffect(() => {
+        gameWon && buttonRef.current?.focus();
+    },[gameWon]);
+    
     return (
         <main>
             {gameWon && <Confetti/>}
-            <div className="gameInfo">
-                <h1 className="title">Tenzies</h1>
+            <div className="gameInfo" aria-live="polite">
+                {gameWon ? <p>Congratulations! You won! Press "New Game" to start again.</p>:
+                <>
+                    <h1 className="title">Tenzies</h1>
              <p className="instructions">Roll until all dice are the same.
                  Click each die to freeze it at its current value between rolls.</p>
+                </>
+                }
             </div>
-             
             <div className="diesCont">
                 {diceElement}
             </div>
             <div>
-                <button className={gameWon? "NewGame":"roll"} onClick={rollDice}>{gameWon? "New Game":"Roll"}</button>
+                <button ref={buttonRef} className={gameWon? "NewGame":"roll"} onClick={rollDice}>{gameWon? "New Game":"Roll"}</button>
             </div>
         </main>)
 }
