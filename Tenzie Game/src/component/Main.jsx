@@ -66,21 +66,23 @@ export default function Main(){
     return (
         <main>
             {gameWon && <Confetti/>}
-            <div className="gameInfo" aria-live="polite">
-                {gameWon ? 
-                <>
-                 <p>Congratulations! You won! Press "New Game" to start again.</p>
-                 <p>Time elapsed {Math.floor(time/1000)} second</p>
-                 <p>You have made {strokeNum} clicks</p>
-                </>
+           
+            {gameWon ? 
+            <div className="congrats">
+                    <p>🎉 Congratulations! You won! 🎉</p>
+                    <p>Time elapsed: {Math.floor(time / 1000)} seconds</p>
+                    <p>Clicks made: {strokeNum}</p>
+            </div>
+              
                :
-                <>
+                
+                 <div className="gameInfo" aria-live="polite">
                     <h1 className="title">Tenzies</h1>
              <p className="instructions">Roll until all dice are the same.
                  Click each die to freeze it at its current value between rolls.</p>
-                </>
-                }
             </div>
+                }
+            
             <div className="diesCont">
                 {diceElement}
             </div>
