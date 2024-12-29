@@ -23,7 +23,10 @@ export default function Main(){
                         />)
 
     function rollDice(){
-        setArrayNewDice(generateAllNewDice())
+        setArrayNewDice(prevArr => prevArr.map( (dice, index) => 
+            dice.isHeld? dice : generateAllNewDice()[index]
+        )
+            )
     }
 
     function hold(id){
