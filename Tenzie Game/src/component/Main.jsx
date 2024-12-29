@@ -27,7 +27,9 @@ export default function Main(){
     }
 
     function hold(id){
-        console.log(id)
+        setArrayNewDice((prevArr) => prevArr.map(dice => (
+            dice.id === id ? {...dice, isHeld:!dice.isHeld} : dice
+        )))
     }
     return (
         <main>
