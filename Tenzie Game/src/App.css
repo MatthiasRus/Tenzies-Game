@@ -36,6 +36,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 60px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -44,7 +45,7 @@ main:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.die,.die button{
+.die,.die button {
   background-color: #fff; 
   color: #0B2434; 
   border: none;
@@ -64,8 +65,7 @@ main:hover {
 
 .die:active {
   transform: translateY(2px) scale(1.53); 
-
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 2px 4px rgb(0, 0, 0); 
 }
 
 .diesCont {
@@ -74,4 +74,28 @@ main:hover {
   grid-template-rows: repeat(2, 1fr); 
   gap: 40px; 
   padding: 10px; 
+}
+
+
+.roll{
+  background-color: #5d00fd; 
+  color: #ffffff; 
+  border: none;
+  width: 140px;
+  height: 50px;
+  text-align: center;
+  font-size: 2rem; 
+  font-weight: 700; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out; 
+}
+
+.roll:active {
+  transform: translateY(2px) scale(1.53); 
+  box-shadow: 0 4px 6px rgb(30, 255, 251); 
 }

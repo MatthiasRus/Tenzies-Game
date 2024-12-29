@@ -13,5 +13,8 @@ export default function Main(){
             <div className="diesCont">
                 {diceElement}
             </div>
+            <div>
+                <button className="roll">Roll</button>
+            </div>
         </main>)
 }
