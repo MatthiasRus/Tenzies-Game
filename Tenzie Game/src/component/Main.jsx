@@ -23,6 +23,7 @@ export default function Main(){
                         />)
 
     function rollDice(){
+        gameWon? setArrayNewDice(generateAllNewDice()):
         setArrayNewDice(prevArr => prevArr.map( dice =>
             dice.isHeld ? dice : {...dice, value: Math.ceil(Math.random() * 6)}
         )
@@ -35,7 +36,7 @@ export default function Main(){
         )))
     }
     const gameWon = arrayNewDice.every(dice => dice.isHeld) && arrayNewDice.every(dice => dice.value === arrayNewDice[0].value);
-    gameWon&&console.log("Won")
+
     return (
         <main>
             <div className="gameInfo">
@@ -48,7 +49,7 @@ export default function Main(){
                 {diceElement}
             </div>
             <div>
-                <button className="roll" onClick={rollDice}>Roll</button>
+                <button className="roll" onClick={rollDice}>{gameWon? "New Game":"Roll"}</button>
             </div>
         </main>)
 }
