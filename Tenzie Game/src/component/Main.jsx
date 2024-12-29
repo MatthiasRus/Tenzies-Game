@@ -34,6 +34,8 @@ export default function Main(){
             dice.id === id ? {...dice, isHeld:!dice.isHeld} : dice
         )))
     }
+    const gameWon = arrayNewDice.every(dice => dice.isHeld) && arrayNewDice.every(dice => dice.value === arrayNewDice[0].value);
+    gameWon&&console.log("Won")
     return (
         <main>
             <div className="gameInfo">
