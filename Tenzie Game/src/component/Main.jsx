@@ -23,7 +23,7 @@ export default function Main(){
                         />)
 
     function rollDice(){
-        gameWon? setArrayNewDice(generateAllNewDice()):
+        gameWon ? setArrayNewDice(generateAllNewDice()):
         setArrayNewDice(prevArr => prevArr.map( dice =>
             dice.isHeld ? dice : {...dice, value: Math.ceil(Math.random() * 6)}
         )
