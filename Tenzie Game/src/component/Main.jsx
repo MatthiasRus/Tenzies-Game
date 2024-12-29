@@ -1,19 +1,16 @@
 import Die from './Die.jsx'
 
 export default function Main(){
+    function allNewDice(){
+        return Array.from({length:10}, ()=>(Math.ceil(Math.random()*6)))
+    }
+    const arrayNewDice = allNewDice();
     return (
         <main>
             <div className="diesCont">
-            <Die value={1}/>
-            <Die value={2}/>
-            <Die value={3}/>
-            <Die value={1}/>
-            <Die value={2}/>
-            <Die value={3}/>
-            <Die value={1}/>
-            <Die value={2}/>
-            <Die value={3}/>
-            <Die value={4}/>
+                {arrayNewDice.map(dice => (
+                  <Die value={dice}/>   
+                ))}
             </div>
         </main>)
 }
