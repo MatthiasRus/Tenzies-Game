@@ -1,16 +1,17 @@
 import Die from './Die.jsx'
+import { useState } from 'react';
 
 export default function Main(){
-    function allNewDice(){
-        return Array.from({length:10}, ()=>(Math.ceil(Math.random()*6)))
+    function generateAllNewDice(){
+        return Array(10).fill(0).map(()=>Math.ceil(Math.random()*6))
     }
-    const arrayNewDice = allNewDice();
+    const [arrayNewDice, setArrayNewDice] = useState(generateAllNewDice());
+
+    const diceElement = arrayNewDice.map(dice => (<Die value={dice}/>))
     return (
         <main>
             <div className="diesCont">
-                {arrayNewDice.map(dice => (
-                  <Die value={dice}/>   
-                ))}
+                {diceElement}
             </div>
         </main>)
 }
